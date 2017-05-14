@@ -1,0 +1,60 @@
+service: double-loop-learning
+
+provider:
+  name: aws
+  runtime: nodejs6.10
+
+plugins:
+  - serverless-step-functions
+
+# http://www.goingserverless.com/blog/using-environment-variables-with-the-serverless-framework
+# https://serverless.com/framework/docs/providers/aws/guide/variables/#reference-variables-in-other-files
+custom:
+  accountId: 1234 #${file(env.yml):aws_account
+  
+functions:
+  hello:
+    handler: handler.hello
+
+stepFunctions:
+  stateMachines:
+    doubleLoopLearner:
+      events:
+        - http:
+            path: double-looper
+            method: GET
+      definition:
+        Comment: "A Hello World example of the Amazon States Language using an AWS Lambda Function"
+        StartAt: Assume
+        States:
+          Assume:
+            Type: Pass
+            Next: Plan
+          Plan:
+            Type: Pass
+            Next: Do
+          Do:
+            Type: Pass
+            Next: Check
+          Check:
+            Type: Choice
+            Choices:
+            - Variable: "$.bar"
+              StringEquals: "bar"
+              Next: Adjust
+            - Variable: "$.quux"
+              StringEquals: "quux"
+              Next: ThinkAgain
+            - Variable: "$.foo"
+              StringEquals: "foo"
+              # Seemingly a Choice cannot go directly to End: true
+              Next: Done
+          ThinkAgain:
+            Type: Pass
+            Next: Assume
+          Adjust:
+            Type: Pass
+            Next: Plan
+          Done:
+            Type: Pass
+            End: true

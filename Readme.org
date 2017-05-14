@@ -1,0 +1,24 @@
+#+INFOJS_OPT: view:t toc:t ltoc:t mouse:underline buttons:0 path:http://thomasf.github.io/solarized-css/org-info.min.js
+#+HTML_HEAD: <link rel="stylesheet" type="text/css" href="http://thomasf.github.io/solarized-css/solarized-light.min.css" />
+#+options: ^:nil
+
+* Double loop learning
+
+[[https://twitter.com/danielbryantuk/status/859172309667643398][A double loop learning diagram variant]] that I saw on Twitter turned me
+on the [[https://en.wikipedia.org/wiki/Double-loop_learning][Double-loop learning]] concept. It dovetails nicely with the
+[[https://www.quora.com/Did-Einstein-really-define-insanity-as-doing-the-same-thing-over-and-over-again-and-expecting-different-results][apocrophal Einstein quote]]:
+#+BEGIN_QUOTE
+Insanity: doing the same thing over and over again and expecting different results.
+#+END_QUOTE
+
+For what I'm guessing is the original paper on double loop learning, check out Chris Argyris'
+article [[http://pds8.egloos.com/pds/200805/20/87/chris_argyris_learning.pdf]["Teaching smart people how to learn" (PDF)]], republished with commentary.
+#+BEGIN_QUOTE
+I have coined the terms ‘‘single loop’’ and ‘‘double loop’’ learning
+to capture this crucial distinction.
+#+END_QUOTE
+
+So, the original diagrams were designed for introducing the concept to business types.
+The diagram I saw on Twitter was much more of a flowchart for geeks.
+This work formalizes the idea into a state machine.
+  
